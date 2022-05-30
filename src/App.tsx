@@ -1,14 +1,14 @@
 import { useState } from "react";
 import "./App.css";
-import { IPerson, PersonStatus } from "./data/interfaces";
+import { IPerson} from "./data/interfaces";
 
 const person: IPerson = {
   firstName: "Ali",
   lastName: "Dankal",
   age: 40,
   isMember: false,
-  scores: [22],
-  status: PersonStatus.Employee,
+  scores: [22, 56, 88],
+  status: 'customer'
 };
 
 function App() {
@@ -17,11 +17,10 @@ function App() {
   return (
     <div className="App">
       <p>
-        {person.status === PersonStatus.Employee && (
+      {person.status === 'customer' && (
           <>
             The person {person.firstName} {person.lastName} is {person.age}{" "}
-            years old. The person has {person.scores} scores. His status is:{" "}
-            {PersonStatus [person.status]}
+            years old. Their scores are: {person.scores.join(', ')} and his status is: {person.status}
           </>
         )}
       </p>
